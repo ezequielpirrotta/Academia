@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <html>
+        
+    <style>
+        .overflow-auto{
+            margin: 300px;
+            height:500px; 
+            width:500px;
+        }
+
+    </style>
+    
+    
+    <a href="/logOut">Cerrar Sesion</a>
+    <form action="/newPost" method="POST">
+        <input type="text" name="contenido" placeholder="Escriba aqui su tuit ;)">
+        <input type="hidden" name="user" value="{{usuario}}">
+    </form>
+    
+        
+    <div class="overflow-auto">
+        {% for post in po %}
+            <div>
+                <p>post.content</p><br>
+                <p>by post.owner </p>
+            </div>
+        {% endfor %}
+    </div>
+                
+    
+    </html>
+{% endblock %}

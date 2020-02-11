@@ -18,7 +18,7 @@ class LoginService {
 
     public function login(string $userId, string $password){
         $user = $this->userService->getUser($userId);
-        $pass = $user->getPassword($password);
+        $pass = $user->getPassword();
         if ($user->getUserId() === $userId) {
             if ($pass === $password){
                 $_SESSION['login']=true;
